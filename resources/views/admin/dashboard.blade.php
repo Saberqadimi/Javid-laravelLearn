@@ -55,10 +55,6 @@
     </div>
     {{-- endMain --}}
 
-    {{-- footer --}}
-    @include('admin.partials.footer')
-    {{-- end --}}
-
 
     <!-- JS
                                     ============================================ -->

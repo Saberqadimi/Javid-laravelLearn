@@ -21,6 +21,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'email_verified_at'
     ];
 
     /**
@@ -46,9 +47,6 @@ class User extends Authenticatable
     {
         return $this->hasMany(Blog::class);
     }
-
-
-
 
 
 }

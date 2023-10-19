@@ -17,31 +17,35 @@
         <div class="col-lg-8 col-md-8 col-12 mb-30">
             <div class="box">
                 <div class="box-body">
-                    <form action="/admin/users/update/" method="POST">
+                    <form action="{{route('dashboard.update.user' , $user->id)}}" method="POST">
+                        @csrf
+                        @method('put')
                         <div class="row mbn-20">
-
-
                             <div class="col-12 mb-20">
-                                <input type="text" name="full_name" value="" id="formLayoutUsername3"
+                                <input type="text" name="full_name" value="{{$user->name}}" id="formLayoutUsername3"
                                        class="form-control" placeholder=" نام و نام خانوادگی">
                             </div>
 
                             <div class="col-12 mb-20">
-                                <input type="text" name="email" value="" id="formLayoutUsername3"
+                                <input type="text" name="email" value="{{$user->email}}" id="formLayoutUsername3"
                                        class="form-control" placeholder=" ایمیل">
                             </div>
-
+                            @error('email')
+                            <div class="alert alert-danger p-1">
+                                {{$message}}
+                            </div>
+                            @enderror
                             <div class="col-12 mb-20">
                                 <input type="password" name="password" id="formLayoutUsername3"
                                        class="form-control" placeholder=" پسوورد">
                             </div>
 
                             <div class="col-12 mb-15">
-                                <select name="role" class="form-control">
+                                <select name="type" class="form-control">
                                     <option>انتخاب</option>
-                                    <option value="کاربر">کاربر</option>
-                                    <option value="کارمند">کاربر</option>
-                                    <option value="ادمین">کاربر</option>
+                                    <option value="user">کاربر</option>
+                                    <option value="staff">کارمند</option>
+                                    <option value="admin">کاربر</option>
                                 </select>
                             </div>
 

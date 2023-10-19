@@ -16,7 +16,7 @@
     <div class="col-lg-8 col-md-8 col-12 mb-30">
         <div class="box">
             <div class="box-body">
-                <form action="{{ route('article.store') }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('dashboard.article.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="row mbn-20">
 

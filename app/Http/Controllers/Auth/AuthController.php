@@ -9,6 +9,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Session;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class AuthController extends Controller
@@ -60,5 +61,13 @@ class AuthController extends Controller
         return User::where('email' , $request->email)->firstOrFail();
     }
 
+    public function logout(): \Illuminate\Routing\Redirector|\Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse
+    {
+
+        Auth::logout();
+        Alert::toast('شما از سیستم خارج شدید', 'success');
+
+        return redirect('/');
+    }
 
 }

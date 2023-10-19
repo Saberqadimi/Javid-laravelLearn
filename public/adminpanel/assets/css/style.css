@@ -1,13 +1,13 @@
 /*-----------------------------------------------------------------------------------
 
-    Template Name: Adomx - Responsive Bootstrap 4 Admin Template
+    Template Name: Adomx - Responsive Bootstrap 4 AdminMiddleware Template
     Version: 1.0
 
 -----------------------------------------------------------------------------------
-    
+
     CSS INDEX
     ===================
-	
+
     01. Template default CSS
     02. Elements CSS
         Baisc ---------
@@ -7876,7 +7876,7 @@ table.data-table.collapsed tbody tr.child td.child ul li .dtr-title {
   color: #428bfa;
 }
 
-/*-- Header User Setting Dropdown --*/
+/*-- Header UserMiddleware Setting Dropdown --*/
 .dropdown-menu-user {
   width: 250px;
   padding: 0;
@@ -14519,7 +14519,8 @@ body.skin-dark .cus-radio.light .icon::before {
     padding-right: 0 !important;
   }
   [dir="rtl"] .header-notification-area > li:last-child {
-    padding-left: 0 !important;
+    padding-left: 0
+ !important;
     padding-right: 10px !important;
   }
 }

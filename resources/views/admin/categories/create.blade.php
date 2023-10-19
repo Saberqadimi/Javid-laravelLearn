@@ -16,13 +16,39 @@
         <div class="col-lg-8 col-md-8 col-12 mb-30">
             <div class="box">
                 <div class="box-body">
-                    <form action="" method="POST">
+                    <form action="{{ route('dashboard.store.category') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="row mbn-20">
 
                             <div class="col-12 mb-20">
-                                <input type="text" name="title" id="formLayoutUsername3" class="form-control"
+                                <input type="text" name="name" id="formLayoutUsername3" class="form-control"
                                        placeholder=" عنوان ">
+                            </div>
+                            @error('name')
+                            <span class="text-danger">{{ $message }}</span>
+                            @enderror
+                            <div class="col-12 mb-20">
+                                <input type="text" name="slug" id="formLayoutUsername3" class="form-control"
+                                       placeholder=" اسلاگ ">
+                            </div>
+                            @error('slug')
+                            <span class="text-danger">{{ $message }}</span>
+                            @enderror
+                            <div class="col-12 mb-20">
+                                <input type="file" name="image" id="formLayoutUsername3" class="form-control">
+                            </div>
+                            @error('image')
+                            <span class="text-danger">{{ $message }}</span>
+                            @enderror
+                            <div class="col-12 mb-20">
+                                <select name="parent" id="">
+                                    @foreach($categories as $category)
+                                        <option value="{{$category->id}}">{{$category->name}}</option>
+                                    @endforeach
+                                </select>
+                                @error('parent')
+                                <span class="text-danger">{{ $message }}</span>
+                                @enderror
                             </div>
 
                             <div class="col-12 mb-20">

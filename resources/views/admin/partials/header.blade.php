@@ -220,7 +220,7 @@
 
                             </li>
 
-                            <!--User-->
+                            <!--UserMiddleware-->
                             <li class="adomx-dropdown col-auto">
                                 <a class="toggle" href="#">
                                     <span class="user">
@@ -228,11 +228,26 @@
                                             <img src="/adminpanel/assets/images/avatar/avatar-1.jpg" alt="">
                                             <span class="status"></span>
                                         </span>
-                                        <span class="name">صابرقدیمی</span>
+                                        <span class="name">{{auth()->user()->name}}</span>
                                     </span>
                                 </a>
+                                <!-- Dropdown -->
+                                <div class="adomx-dropdown-menu dropdown-menu-user">
+                                    <div class="head">
+                                        <h5 class="name"><a href="#">{{auth()->user()->name}}</a></h5>
+                                        <a class="mail" href="#">{{auth()->user()->email}}</a>
+                                    </div>
+                                    <div class="body">
+                                        <ul>
+                                            <li>
+                                                <a href="{{route('user-logout')}}"><i class="zmdi zmdi-lock-open"></i>خروج</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
 
                             </li>
+
 
                         </ul>
 

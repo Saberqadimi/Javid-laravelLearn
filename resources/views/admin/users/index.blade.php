@@ -39,13 +39,15 @@
                         </tr>
                         </thead>
                         <tbody>
+                        @foreach($users as $user)
+
                         <tr>
-                            <th>1</th>
-                            <td>saber qadimi</td>
-                            <td>testt@gmail.com</td>
-                            <td>1402-02-30</td>
+                            <th>{{$user->id}}</th>
+                            <td>{{$user->name}}</td>
+                            <td>{{$user->email}}</td>
+                            <td>{{$user->created_at}}</td>
                             <td>
-                                <a href="/admin/users/edit/">
+                                <a href="{{route('dashboard.edit.user' , $user->id)}}">
                                     <i class="fa fa-pencil" aria-hidden="true"></i>
                                 </a>
                                 <a href="/admin/users/delete/">
@@ -53,6 +55,7 @@
                                 </a>
                             </td>
                         </tr>
+                        @endforeach
                         </tbody>
                     </table>
                 </div>

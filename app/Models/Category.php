@@ -5,6 +5,7 @@ namespace App\Models;
 use Hekmatinasser\Verta\Verta;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Modules\Blog\Entities\Blog;
 
 class Category extends Model
 {

@@ -11,7 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/x-icon" href="/adminpanel/assets/images/favicon.ico">
-
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- CSS
  ============================================ -->
 
@@ -35,6 +35,7 @@
 
     <!-- Custom Style CSS Only For Demo Purpose -->
     <link id="cus-style" rel="stylesheet" href="/adminpanel/assets/css/style-primary.css">
+    <link rel="stylesheet" href="{{ asset('vendor/file-manager/css/file-manager.css') }}">
 
 </head>
 
@@ -58,10 +59,9 @@
 
     <!-- JS
                                     ============================================ -->
-
     <!-- Global Vendor, plugins & Activation JS -->
-    <script src="/adminpanel/assets/js/vendor/modernizr-3.6.0.min.js"></script>
     <script src="/adminpanel/assets/js/vendor/jquery-3.3.1.min.js"></script>
+    <script src="/adminpanel/assets/js/vendor/modernizr-3.6.0.min.js"></script>
     <script src="/adminpanel/assets/js/vendor/popper.min.js"></script>
     <script src="/adminpanel/assets/js/vendor/bootstrap.min.js"></script>
     <!--Plugins JS-->
@@ -69,7 +69,9 @@
     <script src="/adminpanel/assets/js/plugins/tippy4.min.js.js"></script>
     <!--Main JS-->
     <script src="/adminpanel/assets/js/main.js"></script>
-
+    <script src="{{ url('/adminpanel/assets/vendor/ckeditor/ckeditor.js') }}"></script>
+{{--    <script src="{{ asset('vendor/file-manager/js/file-manager.js') }}"></script>--}}
+    @stack('javascript')
 </body>
 
 

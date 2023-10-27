@@ -1,7 +1,6 @@
 <?php
 
-use App\Http\Controllers\Admin\AdminController;
-use App\Http\Controllers\Admin\ArticleController;
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -33,6 +32,9 @@ Route::post('/password-update', [\App\Http\Controllers\Auth\ResetPasswordControl
 Route::get('/logout', '\App\Http\Controllers\Auth\AuthController@logout')->middleware('auth')->name('user-logout');
 
 Route::get('/', function () {
+//    $user = User::find(8);
+//    $update = $user->update(['password' => bcrypt('#Javid142536')]);
+//    dd($update);
     return view('welcome');
 });
 

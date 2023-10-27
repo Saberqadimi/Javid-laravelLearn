@@ -2,7 +2,6 @@
 
 
 use App\Http\Controllers\Admin\AdminController;
-use App\Http\Controllers\Admin\ArticleController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -13,11 +12,7 @@ Route::controller(\App\Http\Controllers\Admin\CategoryController::class)->prefix
     Route::get('/create', 'create');
     Route::post('/create' , 'store')->name('store.category');
 });
-Route::controller(ArticleController::class)->prefix('articles')->group(function () {
-    Route::get('/', 'index');
-    Route::get('/create', 'create');
-    Route::post('/create', 'store')->name('article.store');
-});
+
 Route::controller(\App\Http\Controllers\Admin\CommentController::class)->prefix('comments')->group(function () {
     Route::get('/', 'index');
 

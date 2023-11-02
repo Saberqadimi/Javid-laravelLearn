@@ -12,7 +12,8 @@ interface ArticleRepositoryInterface
 
     public function insertData($data);
 
-    public function updateData($data,Blog $article);
+    public function edit($article_id);
+    public function updateData($data, $article);
 
     public function destroy($article);
 }

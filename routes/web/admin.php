@@ -23,6 +23,7 @@ Route::controller(\App\Http\Controllers\Admin\UserController::class)->prefix('us
     Route::post('/create', 'store')->name('create.user');
     Route::get('/edit/{id}', 'edit')->name('edit.user');
     Route::put('/update/{id}', 'update')->name('update.user');
+    Route::get('/delete/{id}', 'destroy')->name('delete.user');
 
 });
 

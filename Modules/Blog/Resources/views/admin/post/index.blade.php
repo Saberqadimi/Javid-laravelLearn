@@ -49,7 +49,14 @@
                                 <td>{{ $article->author }}</td>
                                 <td>{{ $article->created_at }}</td>
                                 <td>{{ $article->view_count }}</td>
-                                <td>edit | delete</td>
+                                <td>
+                                    <a href="{{route('dashboard.article.edit' , $article->id)}}">
+                                        <i class="fa fa-pencil" aria-hidden="true"></i>
+                                    </a>
+                                    <a href="{{route('dashboard.article.delete' , $article->id)}}">
+                                        <i class="fa fa-close" aria-hidden="true"></i>
+                                    </a>
+                                </td>
                             </tr>
                         @endforeach
                         </tbody>

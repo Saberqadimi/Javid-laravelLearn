@@ -18,6 +18,9 @@ Route::controller(ArticleController::class)->prefix('articles')->group(function 
     Route::get('/', 'index');
     Route::get('/create', 'create');
     Route::post('/create', 'store')->name('article.store');
+    Route::get('/edit/{article_id}', 'edit')->name('article.edit');
+    Route::put('/update/{article_id}', 'update')->name('article.update');
+    Route::get('/delete/{article_id}', 'destroy')->name('article.delete');
     Route::get('/test' , function (){
 
         $article = \Modules\Blog\Entities\Blog::with(['categories' , 'tagged'])->find(7);

@@ -8,6 +8,7 @@ use App\Http\Requests\Admin\UserUpdateRequest;
 use App\Models\User;
 use App\Services\UserService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class UserController extends Controller
@@ -16,6 +17,7 @@ class UserController extends Controller
     public function __construct()
     {
         $this->userService = new UserService();
+        $this->middleware('gate:show-users-list')->only(['index' , 'create']);
     }
 
     public function index()
@@ -52,5 +54,13 @@ class UserController extends Controller
         $this->userService->updateUser($validData , $user);
         Alert::toast("کاربر جدید با موفقیت بروزرسانی شد." , "success");
         return redirect()->route('dashboard.users');
+    }
+
+    public function destroy($id)
+    {
+        $user = User::find($id);
+        $user->delete();
+        Alert::toast('کاربر حذف شد.' , 'success');
+        return back();
     }
 }

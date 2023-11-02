@@ -35,6 +35,7 @@ Route::get('/', function () {
 //    $user = User::find(8);
 //    $update = $user->update(['password' => bcrypt('#Javid142536')]);
 //    dd($update);
+    dd(auth()->user());
     return view('welcome');
 });
 

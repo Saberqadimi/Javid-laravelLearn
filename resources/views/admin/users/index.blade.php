@@ -41,20 +41,25 @@
                         <tbody>
                         @foreach($users as $user)
 
-                        <tr>
-                            <th>{{$user->id}}</th>
-                            <td>{{$user->name}}</td>
-                            <td>{{$user->email}}</td>
-                            <td>{{$user->created_at}}</td>
-                            <td>
-                                <a href="{{route('dashboard.edit.user' , $user->id)}}">
-                                    <i class="fa fa-pencil" aria-hidden="true"></i>
-                                </a>
-                                <a href="/admin/users/delete/">
-                                    <i class="fa fa-close" aria-hidden="true"></i>
-                                </a>
-                            </td>
-                        </tr>
+                            <tr>
+                                <th>{{$user->id}}</th>
+                                <td>{{$user->name}}</td>
+                                <td>{{$user->email}}</td>
+                                <td>{{$user->created_at}}</td>
+                                <td>
+                                    <a href="{{route('dashboard.edit.user' , $user->id)}}">
+                                        <i class="fa fa-pencil" aria-hidden="true"></i>
+                                    </a>
+                                    <a href="{{route('dashboard.delete.user' , $user->id)}}">
+                                        <i class="fa fa-close" aria-hidden="true"></i>
+                                    </a>
+                                    @if($user->type === "staff")
+                                        <a href="{{route('dashboard.template-add-permission' , $user->id)}}">
+                                            <i class="fa fa-rebel" aria-hidden="true"></i>
+                                        </a>
+                                    @endif
+                                </td>
+                            </tr>
                         @endforeach
                         </tbody>
                     </table>

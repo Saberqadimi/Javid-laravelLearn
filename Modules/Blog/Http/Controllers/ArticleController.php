@@ -35,4 +35,19 @@ class ArticleController extends Controller
     {
         return $this->repository->insertData($request);
     }
+
+    public function edit($article_id)
+    {
+        return $this->repository->edit($article_id);
+    }
+
+    public function update(CreateArticleRequest $request , $article_id)
+    {
+        return $this->repository->updateData($request , $article_id);
+    }
+
+    public function destroy($id)
+    {
+       return $this->repository->destroy($id);
+    }
 }

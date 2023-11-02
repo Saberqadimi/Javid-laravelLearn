@@ -18,30 +18,56 @@ class ArticleRepository implements ArticleRepositoryInterface
     public function createForm(): \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Contracts\Foundation\Application
     {
         $categories = Category::latest()->get();
-        return view('blog::admin.post.create' , compact('categories'));
+        return view('blog::admin.post.create', compact('categories'));
     }
 
 
     public function insertData($request)
     {
         $user = auth()->user();
-        $article = Blog::insertQuery($user,$request);
+        $article = Blog::insertQuery($user, $request);
         $article->categories()->sync($request->categories);
-        $tags = explode("," , $request->tags);
+        $tags = explode(",", $request->tags);
         $article->tag($tags);
         Alert::toast('مقاله شما با موفقیت افزوده شد.', 'success');
 
         return redirect('/dashboard/articles');
     }
 
-    public function updateData($request,Blog $article)
+    public function edit($article_id)
     {
-        // TODO: Implement updateData() method.
+        $article = Blog::find($article_id);
+        $categories = Category::latest()->get();
+        $tags = implode(',' , $article->tags->pluck('name')->toArray());
+
+        return view('blog::admin.post.edit', compact(['article' , 'categories' , 'tags']));
+    }
+
+    public function updateData($request, $article_id)
+    {
+        $article = Blog::find($article_id);
+        $article->update([
+           'title' => $request->title,
+           'slug' => $request->slug,
+           'description' => $request->description,
+           'image' => $request->image,
+           'type_file' => $request->type_file,
+           'path_file' => $request->path_file,
+           'status' => $request->status,
+        ]);
+        $article->categories()->sync($request->categories);
+        $article->tag($request->tags);
+        Alert::toast('مقاله شما با موفقیت بروزرسانی شد.', 'success');
+
+        return redirect('dashboard/articles');
+
     }
 
     public function destroy($article)
     {
-        // TODO: Implement destroy() method.
+        Blog::find($article)->delete();
+        Alert::toast('مقاله شما با موفقیت حذف شد.', 'success');
+        return back();
     }
 
 

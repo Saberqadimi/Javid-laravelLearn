@@ -7,6 +7,8 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Modules\Blog\Entities\Blog;
+use Modules\Permission\Entities\Permission;
+use Modules\Permission\Entities\Role;
 
 class User extends Authenticatable
 {
@@ -46,6 +48,26 @@ class User extends Authenticatable
     public function blogs()
     {
         return $this->hasMany(Blog::class);
+    }
+
+    public function roles(): \Illuminate\Database\Eloquent\Relations\BelongsToMany
+    {
+        return $this->belongsToMany(Role::class);
+    }
+
+    public function permissions(): \Illuminate\Database\Eloquent\Relations\BelongsToMany
+    {
+        return $this->belongsToMany(Permission::class);
+    }
+
+    public function hasRole($roles)
+    {
+        return !!$roles->intersect($this->roles)->all();
+    }
+
+    public function hasPermission($permission)
+    {
+        return $this->permissions->contains('name', $permission->name) || $this->hasRole($permission->roles);
     }
 
 

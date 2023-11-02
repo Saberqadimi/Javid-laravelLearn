@@ -23,7 +23,7 @@
 
             <!-- Content -->
             <div class="content">
-                <h2>26</h2>
+                <h2>{{$usersCount}}</h2>
             </div>
 
             <!-- Footer -->
@@ -40,13 +40,36 @@
 
             <!-- Head -->
             <div class="head">
-                <h4>تعداد مطالب</h4>
+                <h4>تعداد مقالات</h4>
                 <a href="#" class="view"><i class="zmdi zmdi-eye"></i></a>
             </div>
 
             <!-- Content -->
             <div class="content">
-                <h2>66</h2>
+                <h2>{{$articleCount}}</h2>
+            </div>
+
+            <!-- Footer -->
+            <div class="footer">
+                <div class="progess">
+                    <div class="progess-bar" style="width: 92%;"></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="col-xlg-4 col-md-6 col-12 mb-30">
+        <div class="top-report">
+
+            <!-- Head -->
+            <div class="head">
+                <h4>تعداد دسته بندی ها</h4>
+                <a href="#" class="view"><i class="zmdi zmdi-eye"></i></a>
+            </div>
+
+            <!-- Content -->
+            <div class="content">
+                <h2>{{$categoryCount}}</h2>
             </div>
 
             <!-- Footer -->
@@ -93,7 +116,7 @@
 
             <!-- Content -->
             <div class="content">
-                <h2>890</h2>
+                <h2>{{$countView}}</h2>
             </div>
 
             <!-- Footer -->

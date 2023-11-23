@@ -1,5 +1,6 @@
 <?php
 
+use App\Services\PartialDiscountData;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -15,6 +16,5 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/test' , function(){
-
-    // logic
+//
 });

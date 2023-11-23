@@ -47,4 +47,9 @@ class Blog extends Model
             'author' => $user->name,
         ]);
     }
+
+    public function scopeStatus($query , $condition)
+    {
+        return $query->where('status' , $condition);
+    }
 }

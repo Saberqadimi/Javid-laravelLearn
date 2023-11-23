@@ -70,5 +70,9 @@ class User extends Authenticatable
         return $this->permissions->contains('name', $permission->name) || $this->hasRole($permission->roles);
     }
 
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
 
 }

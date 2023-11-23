@@ -1,8 +1,8 @@
 <?php
 
+use App\Http\Controllers\Site\ArticleController;
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -31,13 +31,19 @@ Route::post('/password-update', [\App\Http\Controllers\Auth\ResetPasswordControl
 
 Route::get('/logout', '\App\Http\Controllers\Auth\AuthController@logout')->middleware('auth')->name('user-logout');
 
-Route::get('/', function () {
-//    $user = User::find(8);
-//    $update = $user->update(['password' => bcrypt('#Javid142536')]);
-//    dd($update);
-    dd(auth()->user());
-    return view('welcome');
-});
+Route::get('/' , '\App\Http\Controllers\Site\ArticleController@main')->name('main');
+Route::get('articles/{slug}' , '\App\Http\Controllers\Site\ArticleController@article')->name('single.article');
+Route::get('articles/{slug}/like' , '\App\Http\Controllers\Site\ArticleController@likeArticle')->name('single.article.like');
+
+Route::post('comment-register' , '\App\Http\Controllers\Site\CommentController@register')->name('register.comment');
+
+// Route::get('/', function () {
+// //    $user = User::find(8);
+// //    $update = $user->update(['password' => bcrypt('#Javid142536')]);
+// //    dd($update);
+//     dd(auth()->user());
+//     return view('welcome');
+// });
 
 
 //

@@ -26,7 +26,7 @@ class ArticleRepository implements ArticleRepositoryInterface
     {
         $user = auth()->user();
         $article = Blog::insertQuery($user, $request);
-        $article->categories()->sync($request->categories);
+        $article->categories()->attach($request->categories);
         $tags = explode(",", $request->tags);
         $article->tag($tags);
         Alert::toast('مقاله شما با موفقیت افزوده شد.', 'success');
